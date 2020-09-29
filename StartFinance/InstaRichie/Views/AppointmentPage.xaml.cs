@@ -67,12 +67,21 @@ namespace StartFinance.Views
                     MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
                     await dialog.ShowAsync();
                 }
-                else if (_DatePicker.Date < currentTime)
+                else if (_DatePicker.Date.Date < currentTime.Date)
                 {
                     MessageDialog dialog = new MessageDialog("Check the date", "Oops..!");
                     await dialog.ShowAsync();
                 }
-
+                else if ((_DatePicker.Date.Date == currentTime.Date) && (_StartTime.Time < currentTime.TimeOfDay))
+                {
+                    MessageDialog dialog = new MessageDialog("Check the Start Time", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else if (_StartTime.Time >= _EndTime.Time)
+                {
+                    MessageDialog dialog = new MessageDialog("Check the End Time", "Oops..!");
+                    await dialog.ShowAsync();
+                }
                 else
                 {   // Inserts the data
                     conn.Insert(new AppointmentInfo()
@@ -136,9 +145,19 @@ namespace StartFinance.Views
                     MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
                     await dialog.ShowAsync();
                 }
-                else if (_DatePicker.Date < currentTime.Date)
+                else if (_DatePicker.Date.Date < currentTime.Date)
                 {
                     MessageDialog dialog = new MessageDialog("Check the date", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else if ((_DatePicker.Date.Date == currentTime.Date) && (_StartTime.Time < currentTime.TimeOfDay))
+                {
+                    MessageDialog dialog = new MessageDialog("Check the Start Time", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else if (_StartTime.Time >= _EndTime.Time)
+                {
+                    MessageDialog dialog = new MessageDialog("Check the End Time", "Oops..!");
                     await dialog.ShowAsync();
                 }
                 else
