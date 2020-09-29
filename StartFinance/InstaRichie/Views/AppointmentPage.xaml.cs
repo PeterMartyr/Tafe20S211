@@ -79,7 +79,7 @@ namespace StartFinance.Views
                     {
                         EventName = _EventName.Text,
                         Location = _Location.Text,
-                        EventDate = _DatePicker.Date.Date,
+                        EventDate = _DatePicker.Date.ToString("yyyy/MM/dd"),
                         StartTime = _StartTime.Time.ToString(),
                         EndTime = _EndTime.Time.ToString()
                     });
@@ -109,7 +109,7 @@ namespace StartFinance.Views
                 infoObject = conn.Find<AppointmentInfo>(AppointmentInfo);
                 _EventName.Text = infoObject.EventName;
                 _Location.Text = infoObject.Location;
-                _DatePicker.Date = infoObject.EventDate;
+                _DatePicker.Date = Convert.ToDateTime(infoObject.EventDate);
                 _StartTime.Time = Convert.ToDateTime(infoObject.StartTime).TimeOfDay;
                 _EndTime.Time = Convert.ToDateTime(infoObject.EndTime).TimeOfDay;
 
@@ -136,7 +136,7 @@ namespace StartFinance.Views
                     MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
                     await dialog.ShowAsync();
                 }
-                else if (_DatePicker.Date < currentTime)
+                else if (_DatePicker.Date < currentTime.Date)
                 {
                     MessageDialog dialog = new MessageDialog("Check the date", "Oops..!");
                     await dialog.ShowAsync();
@@ -147,7 +147,7 @@ namespace StartFinance.Views
 
                     temp.EventName = _EventName.Text;
                     temp.Location = _Location.Text;
-                    temp.EventDate = _DatePicker.Date.Date;
+                    temp.EventDate = _DatePicker.Date.ToString("yyyy/MM/dd");
                     temp.StartTime = _StartTime.Time.ToString();
                     temp.EndTime = _EndTime.Time.ToString();
 
