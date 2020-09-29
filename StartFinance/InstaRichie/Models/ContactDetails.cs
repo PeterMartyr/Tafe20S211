@@ -12,14 +12,19 @@ namespace StartFinance.Models
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
+        [NotNull]
         public string FirstName { get; set; }
 
+        [NotNull]
         public string LastName { get; set; }
 
+        [NotNull]
         public string CompanyName { get; set; }
 
+        [NotNull, Unique]
         public string MobilePhone { get; set; }
 
+        [NotNull]
         public string City { get; set; }
         
 

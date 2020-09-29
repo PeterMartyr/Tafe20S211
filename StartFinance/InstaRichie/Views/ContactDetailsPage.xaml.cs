@@ -66,11 +66,7 @@ namespace StartFinance.Views
                     await dialog.ShowAsync();
                 }
                  
-                else if (_cityComboBox.SelectedIndex == -1)
-                {
-                    MessageDialog dialog = new MessageDialog("Select a City", "Oops..!");
-                    await dialog.ShowAsync();
-                }
+                
 
 
                 else
@@ -81,7 +77,7 @@ namespace StartFinance.Views
                         LastName = _LastName.Text,
                         CompanyName = _CompanyName.Text,
                         MobilePhone = _MobilePhone.Text,
-                        City = _cityComboBox.SelectedValue.ToString()
+                      
 
                     });
                     ClearFields();
@@ -115,7 +111,7 @@ namespace StartFinance.Views
             _LastName.Text = "";
             _CompanyName.Text = "";
             _MobilePhone.Text = "";
-            _cityComboBox.SelectedItem = null;
+            
          
         }
 
@@ -139,7 +135,7 @@ namespace StartFinance.Views
                     temp.CompanyName = _CompanyName.Text;
                     temp.MobilePhone = _MobilePhone.Text;
 
-                    temp.City = _cityComboBox.SelectedValue.ToString();
+                   
                   
 
                     conn.Update(temp);

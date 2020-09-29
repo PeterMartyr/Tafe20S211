@@ -18,11 +18,11 @@
         <DataTemplate x:Key="TransListView">
             <Grid>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding _FirstName}" Padding="0,0,15,0"/>
-                    <TextBlock Text="{Binding _LastName}" Padding="0,0,15,0"/>
-                    <TextBlock Text="{Binding __CompanyName}" Padding="0,0,15,0"/> 
-                    <TextBlock Text="{Binding __MobilePhone}" Padding="0,0,15,0"/>
-                    <TextBlock Text="{Binding _City}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding FirstName}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding LastName}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding CompanyName}" Padding="0,0,15,0"/> 
+                    <TextBlock Text="{Binding MobilePhone}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding City}" Padding="0,0,15,0"/>
                    
                 </StackPanel>
             </Grid>
@@ -107,11 +107,7 @@
                         <TextBox x:Name="_CompanyName" Header="Company Name" TextWrapping="Wrap" InputScope="EmailSmtpAddress"/>
                         <TextBox x:Name="_MobilePhone" Header="Mobile Phone" InputScope="NameOrPhoneNumber"/>
                         
-                        <ComboBox x:Name="_cityComboBox" Header="City" PlaceholderText="Select">
-                            <x:String>Adelaide</x:String>
-                            <x:String>Melbourne</x:String>
-                            <x:String>Sydney</x:String>
-                        </ComboBox>
+                       
                         
                     </StackPanel>
                     <ListView x:Name="TransactionList" Grid.Row="1" ItemTemplate="{StaticResource TransListView}" Margin="0,10,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
