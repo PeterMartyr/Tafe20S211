@@ -18,12 +18,10 @@
         <DataTemplate x:Key="TransListView">
             <Grid>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding FirstName}" Padding="0,0,15,0"/>
-                    <TextBlock Text="{Binding LastName}" Padding="0,0,15,0"/>
-                    <TextBlock Text="{Binding CompanyName}" Padding="0,0,15,0"/> 
-                    <TextBlock Text="{Binding MobilePhone}" Padding="0,0,15,0"/>
-                    <TextBlock Text="{Binding City}" Padding="0,0,15,0"/>
-                   
+                    <TextBlock Text="{Binding FirstNameContact}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding LastNameContact}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding CompanyNameContact}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding MobilePhoneContact}" Padding="0,0,15,0"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -82,7 +80,7 @@
 
             <!--  secondary commands  -->
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton x:Name="AddButton" Icon="Add" Label="Add Contact Details" Click="AppBarButton_Click" />
+                <AppBarButton x:Name="AddButton" Icon="Add" Label="Add Contact Details" Click="AddButton_Click" />
                 <AppBarButton x:Name="SaveButton" Icon="Save" Label="Save" Click="SaveButton_Click" Visibility="Collapsed"/>
                 <AppBarButton Icon="Edit" Label="Add Contact" Click="EditItemButton_Click" />
                 <AppBarButton Icon="Delete" Label="Delete Contact" Click="DeleteItem_Click" />
@@ -102,8 +100,8 @@
                     <StackPanel x:Name="PageStart" Grid.Row="0" VerticalAlignment="Top"
                         HorizontalAlignment="Stretch"
                         Orientation="Vertical" Margin="10,5,10,0">
-                        <TextBox x:Name="_FirstName" Header="FirstName" TextWrapping="Wrap" InputScope="NameOrPhoneNumber"/>
-                        <TextBox x:Name="_LastName" Header="LastName" TextWrapping="Wrap" InputScope="NameOrPhoneNumber"/>
+                        <TextBox x:Name="_FirstName" Header="FirstNameContact" TextWrapping="Wrap" InputScope="NameOrPhoneNumber"/>
+                        <TextBox x:Name="_LastName" Header="LastNameContact" TextWrapping="Wrap" InputScope="NameOrPhoneNumber"/>
                         <TextBox x:Name="_CompanyName" Header="Company Name" TextWrapping="Wrap" InputScope="EmailSmtpAddress"/>
                         <TextBox x:Name="_MobilePhone" Header="Mobile Phone" InputScope="NameOrPhoneNumber"/>
                         

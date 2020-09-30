@@ -173,10 +173,5 @@ namespace StartFinance.Views
                 //
             }
         }
-
-        private void AccName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

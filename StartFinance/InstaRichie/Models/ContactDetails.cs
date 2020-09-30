@@ -13,21 +13,15 @@ namespace StartFinance.Models
         public int ID { get; set; }
 
         [NotNull]
-        public string FirstName { get; set; }
+        public string FirstNameContact { get; set; }
 
         [NotNull]
-        public string LastName { get; set; }
+        public string LastNameContact { get; set; }
 
         [NotNull]
-        public string CompanyName { get; set; }
+        public string CompanyNameContact { get; set; }
 
         [NotNull, Unique]
-        public string MobilePhone { get; set; }
-
-        [NotNull]
-        public string City { get; set; }
-        
-
-
+        public string MobilePhoneContact { get; set; }
     }
 }

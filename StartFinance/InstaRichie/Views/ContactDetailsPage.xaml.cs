@@ -52,10 +52,7 @@ namespace StartFinance.Views
             Results();
         }
 
-
-        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
-
-
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -65,20 +62,14 @@ namespace StartFinance.Views
                     MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
                     await dialog.ShowAsync();
                 }
-                 
-                
-
-
                 else
                 {   // Inserts the data
                     conn.Insert(new ContactDetails()
                     {
-                        FirstName = _FirstName.Text,
-                        LastName = _LastName.Text,
-                        CompanyName = _CompanyName.Text,
-                        MobilePhone = _MobilePhone.Text,
-                      
-
+                        FirstNameContact = _FirstName.Text,
+                        LastNameContact = _LastName.Text,
+                        CompanyNameContact = _CompanyName.Text,
+                        MobilePhoneContact = _MobilePhone.Text,
                     });
                     ClearFields();
                     Results();
@@ -102,7 +93,6 @@ namespace StartFinance.Views
                 }
             }
         }
-
 
         public void ClearFields()
         {
@@ -130,10 +120,10 @@ namespace StartFinance.Views
                 {
                     ContactDetails temp = ((ContactDetails)TransactionList.SelectedItem);
 
-                    temp.FirstName = _FirstName.Text;
-                    temp.LastName = _LastName.Text;
-                    temp.CompanyName = _CompanyName.Text;
-                    temp.MobilePhone = _MobilePhone.Text;
+                    temp.FirstNameContact = _FirstName.Text;
+                    temp.LastNameContact = _LastName.Text;
+                    temp.CompanyNameContact = _CompanyName.Text;
+                    temp.MobilePhoneContact = _MobilePhone.Text;
 
                    
                   
@@ -166,8 +156,6 @@ namespace StartFinance.Views
             }
         }
 
-
-
         private async void EditItemButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -175,11 +163,10 @@ namespace StartFinance.Views
                 int contact_ID = ((ContactDetails)TransactionList.SelectedItem).ID;
                 ContactDetails infoObject = new ContactDetails();
                 infoObject = conn.Find<ContactDetails>(contact_ID);
-                _FirstName.Text = infoObject.FirstName;
-                _LastName.Text = infoObject.LastName; 
-                _CompanyName.Text = infoObject.CompanyName;
-                _MobilePhone.Text = infoObject.MobilePhone; 
-
+                _FirstName.Text = infoObject.FirstNameContact;
+                _LastName.Text = infoObject.LastNameContact; 
+                _CompanyName.Text = infoObject.CompanyNameContact;
+                _MobilePhone.Text = infoObject.MobilePhoneContact; 
 
                  //switched out the add new entry button for the save edited button
                 AddButton.Visibility = Visibility.Collapsed;
@@ -193,7 +180,6 @@ namespace StartFinance.Views
                 await ClearDialog.ShowAsync();
             }
         }
-
 
         private async void DeleteItem_Click(object sender, RoutedEventArgs e)
         {
@@ -231,12 +217,7 @@ namespace StartFinance.Views
                 // Do Nothing
             }
         }
-
-        
     }// class close
-
-
-
 }// nameSpace close
 
 
