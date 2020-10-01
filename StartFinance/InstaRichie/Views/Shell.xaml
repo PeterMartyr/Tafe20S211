@@ -25,6 +25,7 @@
                                Text="DashBoard" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+            
             <!--  Transaction List button  -->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:TransactionListPage" 
                                           AutomationProperties.Name="Jerry"
@@ -85,7 +86,6 @@
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
 
-
             <!--  Wish List button  -->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:WishListPage" 
                                           AutomationProperties.Name="Jerry"
@@ -110,6 +110,19 @@
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
 
+			
+			<!--  Contact Details button  -->
+			<Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ContactDetailsPage" 
+										  AutomationProperties.Name="Jerry"
+										  >
+				<StackPanel Orientation="Horizontal">
+					<SymbolIcon Width="48" Height="48"
+						Symbol="Bullets" />
+					<TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
+							   Text="Contact Details" />
+				</StackPanel>
+			</Controls:HamburgerButtonInfo>
+			
 
             <!--  Appointments button  -->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:AppointmentPage" 
