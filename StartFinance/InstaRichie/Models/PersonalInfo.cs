@@ -30,13 +30,7 @@ namespace StartFinance.Models
         {
             get
             {
-                var sb = new StringBuilder();
-                sb.Append(DOB.Day);
-                sb.Append("/");
-                sb.Append(DOB.Month);
-                sb.Append("/");
-                sb.Append(DOB.Year);
-                return sb.ToString();
+                return String.Format("{0:MM/dd/yyyy}", DOB);
             }
         }
     }

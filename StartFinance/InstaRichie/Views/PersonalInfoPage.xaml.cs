@@ -45,7 +45,7 @@ namespace StartFinance.Views
             // AddButton.Visibility = Visibility.Visible;
             TransactionList.Visibility = Visibility.Visible;
             currentTime = DateTime.Now;
-           // _DatePicker.MaxYear = currentTime;
+            // _DatePicker.MaxYear = currentTime;
             _DatePicker.Date = currentTime;
 
             ClearFields();
@@ -58,12 +58,12 @@ namespace StartFinance.Views
             var query = conn.Table<PersonalInfo>();
             TransactionList.ItemsSource = query.ToList();
         }
-        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 // checks if account name is null
-                if (_FirstName.Text.ToString() == "" || _LastName.Text.ToString() == "" || _Email.Text.ToString() == ""|| _Phone.Text.ToString() == "")
+                if (_FirstName.Text.ToString() == "" || _LastName.Text.ToString() == "")
                 {
                     MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
                     await dialog.ShowAsync();
@@ -78,6 +78,11 @@ namespace StartFinance.Views
                     MessageDialog dialog = new MessageDialog("Select a Gender", "Oops..!");
                     await dialog.ShowAsync();
                 }
+                else if (_Email.Text.ToString() == "" || _Phone.Text.ToString() == "")
+                {
+                    MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
+                    await dialog.ShowAsync();
+                }
                 else
                 {   // Inserts the data
                     conn.Insert(new PersonalInfo()
@@ -88,7 +93,7 @@ namespace StartFinance.Views
                         Gender = _GenderComboBox.SelectedValue.ToString(),
                         Email = _Email.Text,
                         MobilePhone = _Phone.Text
-                });
+                    });
                     ClearFields();
                     Results();
                 }
@@ -144,7 +149,7 @@ namespace StartFinance.Views
         {
             try
             {
-                if (_FirstName.Text.ToString() == "" || _LastName.Text.ToString() == "" || _Email.Text == ""|| _Phone.Text == "")
+                if (_FirstName.Text.ToString() == "" || _LastName.Text.ToString() == "")
                 {
                     MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
                     await dialog.ShowAsync();
@@ -152,6 +157,11 @@ namespace StartFinance.Views
                 else if (_DatePicker.Date >= currentTime)
                 {
                     MessageDialog dialog = new MessageDialog("Check the date", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else if (_Email.Text == "" || _Phone.Text == "")
+                {
+                    MessageDialog dialog = new MessageDialog("All Fields must be entered", "Oops..!");
                     await dialog.ShowAsync();
                 }
                 else
@@ -222,7 +232,6 @@ namespace StartFinance.Views
             var result = await ShowConf.ShowAsync();
             if ((int)result.Id == 0)
             {
-                // checks if data is null else inserts
                 try
                 {
                     PersonalInfo temp = (PersonalInfo)TransactionList.SelectedItem;

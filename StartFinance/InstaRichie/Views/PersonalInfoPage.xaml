@@ -82,7 +82,7 @@
 
             <!--  secondary commands  -->
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton x:Name="AddButton" Icon="Add" Label="Add Personal Info" Click="AppBarButton_Click" />
+                <AppBarButton x:Name="AddButton" Icon="Add" Label="Add Personal Info" Click="AddButton_Click" />
                 <AppBarButton x:Name="SaveButton" Icon="Save" Label="Add Info" Click="SaveButton_Click" Visibility="Collapsed"/>
                 <AppBarButton Icon="Edit" Label="Add Info" Click="EditItemButton_Click" />
                 <AppBarButton Icon="Delete" Label="Delete Personal Info" Click="DeleteItem_Click" />
@@ -96,7 +96,7 @@
             <PivotItem Header="Personal Info">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="350"/>
+                        <RowDefinition Height="380"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel x:Name="PageStart" Grid.Row="0" VerticalAlignment="Top"
